@@ -16,7 +16,4 @@ public class Coin {
 
 
 
-//    insert coin method
-
-
 }

@@ -13,10 +13,7 @@ public class CoinReturn {
 
     public void addCoin (Coin coin) {
 
-        if (coin.getCoinValue() > 2) {
-
             this.coins.add(coin);
-        }
     }
 
     public int getTotalValue () {

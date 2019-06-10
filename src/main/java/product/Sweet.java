@@ -1,4 +1,9 @@
 package product;
 
-public class Sweet {
+public class Sweet extends Product {
+
+    public Sweet (String name, String brand) {
+        super(name, brand);
+    }
+
 }

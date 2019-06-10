@@ -55,12 +55,6 @@ public class CoinReturnTest {
         assertEquals(385, coinReturn.getTotalValue());
     }
 
-    @Test
-    public void canRejectSmallChange() {
-        coinReturn.addCoin(coin1p);
-        coinReturn.addCoin(coin2p);
 
-        assertEquals(0, coinReturn.getTotalValue());
-    }
 
 }
