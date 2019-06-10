@@ -4,6 +4,7 @@ import drawer.Drawer;
 import drawer.DrawerCode;
 import org.junit.Before;
 import org.junit.Test;
+import product.Drink;
 import vendingMachine.VendingMachine;
 
 import static coin.CoinType.FIVEPENCE;
@@ -11,6 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 public class VendingMachineTest {
 
+    Drink drink;
     Drawer drawer1;
     VendingMachine vendingMachine;
     Coin coin1p;
@@ -23,6 +25,7 @@ public class VendingMachineTest {
 
     @Before
     public void setUp() {
+        drink = new Drink("Cola", "Coca Cola");
         drawer1 = new Drawer(DrawerCode.A1, 45);
         coin1p = new Coin(CoinType.ONEPENCE);
         coin2p = new Coin(CoinType.TWOPENCE);
@@ -31,7 +34,7 @@ public class VendingMachineTest {
         coin20p = new Coin(CoinType.TWENTYPENCE);
         coin50p = new Coin(CoinType.FIFTYPENCE);
         vendingMachine = new VendingMachine();
-
+        vendingMachine.addDrawer(drawer1);
     }
 
 //    @Test
@@ -55,6 +58,13 @@ public class VendingMachineTest {
         assertEquals(3, vendingMachine.getCoinReturnValue());
     }
     @Test
-public
+public void canMakePurchase() {
+        vendingMachine.addCoin(coin20p);
+        vendingMachine.addCoin(coin20p);
+        vendingMachine.addCoin(coin5p);
+        drawer1.addProduct(drink);
+        assertEquals(drink, vendingMachine.makePurchase(drawer1));
+    }
+}
 
 

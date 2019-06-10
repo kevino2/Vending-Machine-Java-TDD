@@ -44,7 +44,7 @@ public class VendingMachine {
        return coinReturn.getTotalValue();
     }
 
-    public Product DispenseProduct (DrawerCode drawerCode) {
+    public Product dispenseProduct (DrawerCode drawerCode) {
         for (Drawer drawer : drawers) {
             if (drawerCode == drawer.getDrawerCode()) {
                 return drawer.returnProduct();
@@ -57,15 +57,19 @@ public class VendingMachine {
             if (drawerCode == drawer.getDrawerCode()) {
                 return drawer.getPrice();
             }
+        } return 0;
+    }
+
+    public Product makePurchase (Drawer drawer) {
+        if (this.getEnteredCoinsValue() >= drawer.getPrice()) {
+            return this.dispenseProduct(drawer.getDrawerCode());
         } return null;
     }
 
-    public void makePurchase () {
-        if (this.getEnteredCoinsValue() >= drawer.getPrice());
+
+    public void addDrawer(Drawer drawer) {
+        this.drawers.add(drawer);
     }
-
-
-
 }
 
 
